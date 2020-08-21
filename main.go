@@ -1,7 +1,7 @@
 package main
 
 import (
-	"k8s.io/kubernetes/pkg/kubelet/kubeletconfig/util/log"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -11,10 +11,10 @@ const NEVER_USED = "should fail"
 func main() {
 	if err := testErrorFormat(); err != nil {
 		// printf: Errorf call has arguments but no formatting directives (govet)
-		log.Errorf("error", err)
+		fmt.Errorf("error", err)
 
 		// Solution
-		log.Errorf("error %v:", err)
+		fmt.Errorf("error %v:", err)
 
 	}
 }
@@ -70,12 +70,9 @@ func (f *NotOptimesed) testUseNotOptimesed() error {
 	return nil
 }
 
-
 func(f *NotOptimesed)  pleaseLetCheckYourCode(value string) string {
 	if f.Name == "test" && f.Value == true && len(value) > 0 && value == "i will write something big here just to show it failing" {
 		return "worked"
 	}
 	return "fail"
 }
-
-// just to demo ;-)
