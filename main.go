@@ -76,3 +76,4 @@ func(f *NotOptimesed)  pleaseLetCheckYourCode(value string) string {
 	}
 	return "fail"
 }
+
